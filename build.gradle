@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.runelite.net' }
+}
+
+def runeLiteVersion = 'latest.release'
+
+dependencies {
+    compileOnly group: 'net.runelite', name: 'client', version: runeLiteVersion
+
+    testImplementation 'junit:junit:4.13.2'
+}
+
+group = 'com.dmmtracker'
+version = '1.0.0'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    sourceCompatibility = '11'
+    targetCompatibility = '11'
+}
+
+checkstyle {
+    configFile = file('config/checkstyle/checkstyle.xml')
+    configDirectory = file('config/checkstyle')
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.required = false
+        html.required = true
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+            'Plugin-Class': 'com.dmmtracker.DMMTrackerPlugin',
+            'Plugin-Id': 'dmm-tracker-plugin',
+            'Plugin-Provider': 'DMMScape',
+            'Plugin-Version': project.version,
+            'Plugin-License': 'BSD-2-Clause'
+        )
+    }
+}
