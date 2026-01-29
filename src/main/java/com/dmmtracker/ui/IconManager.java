@@ -25,6 +25,7 @@
 
 package com.dmmtracker.ui;
 
+import com.dmmtracker.ApiConfig;
 import net.runelite.client.util.ImageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,7 +62,6 @@ public class IconManager
 	private static final Map<String, ImageIcon> remoteIconCache = new ConcurrentHashMap<>();
 	private static final Set<String> remoteLoading = ConcurrentHashMap.newKeySet();
 	private static final ExecutorService REMOTE_EXECUTOR = Executors.newFixedThreadPool(2);
-	private static final String DEFAULT_WEBAPP_BASE = "https://dmmscape.com";
 
 	// Icon names
 	public static final String NAV_ICON = "nav_icon";
@@ -268,9 +268,9 @@ public class IconManager
 		}
 		if (url.startsWith("/"))
 		{
-			return DEFAULT_WEBAPP_BASE + url;
+			return ApiConfig.webappBase() + url;
 		}
-		return DEFAULT_WEBAPP_BASE + "/" + url;
+		return ApiConfig.webappBase() + "/" + url;
 	}
 
 	/**
