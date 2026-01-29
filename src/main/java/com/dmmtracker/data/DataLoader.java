@@ -56,7 +56,7 @@ import java.util.stream.Collectors;
 public class DataLoader
 {
 	private static final Logger log = LoggerFactory.getLogger(DataLoader.class);
-	private static final String BUNDLED_DATA_PATH = "/net/runelite/client/plugins/dmmtracker/data/dmmscape-data.json";
+	private static final String BUNDLED_DATA_PATH = "/com/dmmtracker/data/dmmscape-data.json";
 	private static final String CACHE_FILE_NAME = "dmmscape-data-cache.json";
 	private static final String ETAG_FILE_NAME = "dmmscape-data-etag.txt";
 	private static final String REMOTE_DATA_URL = ApiConfig.pluginDataUrl();
