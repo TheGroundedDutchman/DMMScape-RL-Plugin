@@ -25,11 +25,21 @@
 
 package com.dmmtracker.ui;
 
+import com.dmmtracker.DMMTrackerConfig;
+import com.dmmtracker.DeviceAuthService;
+import com.dmmtracker.RuneliteTokenService;
+import com.dmmtracker.SyncService;
+import com.dmmtracker.TargetPoint;
+import com.dmmtracker.TargetService;
+import com.dmmtracker.data.BossData;
+import com.dmmtracker.ui.tabs.DiariesTab;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.PluginPanel;
+import java.awt.BorderLayout;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
-import java.awt.BorderLayout;
 
 public class DMMTabbedPanel extends PluginPanel
 {
@@ -41,5 +51,80 @@ public class DMMTabbedPanel extends PluginPanel
 		JLabel placeholder = new JLabel("Tabs coming soon");
 		placeholder.setBorder(new EmptyBorder(12, 8, 8, 8));
 		add(placeholder, BorderLayout.NORTH);
+	}
+
+	public void setManualSyncHandler(Runnable handler)
+	{
+	}
+
+	public void setTargetToggleHandler(BiConsumer<TargetPoint, Boolean> handler)
+	{
+	}
+
+	public void setTargetNavigateHandler(Consumer<TargetPoint> handler)
+	{
+	}
+
+	public void setTargetRefreshHandler(Runnable handler)
+	{
+	}
+
+	public void setOpenWebHandler(Runnable handler)
+	{
+	}
+
+	public void setBossAddToPlanHandler(Consumer<BossData> handler)
+	{
+	}
+
+	public void setUnsyncHandler(Runnable handler)
+	{
+	}
+
+	public void setUnlinkHandler(Runnable handler)
+	{
+	}
+
+	public void setLinkAccountHandler(Runnable handler)
+	{
+	}
+
+	public void setForceSyncHandler(Runnable handler)
+	{
+	}
+
+	public void setBackToPlanHandler(Runnable handler)
+	{
+	}
+
+	public void setDiaryLocationHandler(DiariesTab.LocationNavigateHandler handler)
+	{
+	}
+
+	public void setClearNavigationHandler(Runnable handler)
+	{
+	}
+
+	public void setDiaryLocationFocusChecker(DiariesTab.LocationFocusChecker handler)
+	{
+	}
+
+	public void refresh(
+		SyncService syncService,
+		TargetService targetService,
+		DMMTrackerConfig config,
+		DeviceAuthService authService,
+		RuneliteTokenService tokenService
+	)
+	{
+	}
+
+	public void refreshStatusOnly(SyncService syncService, TargetService targetService)
+	{
+	}
+
+	public boolean isPlanTabActive()
+	{
+		return false;
 	}
 }
